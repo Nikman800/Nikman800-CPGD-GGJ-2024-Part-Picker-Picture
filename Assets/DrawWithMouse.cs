@@ -15,6 +15,10 @@ public class DrawWithMouse : MonoBehaviour
     private void Start()
     {
         CreateNewLine();
+
+        // Set the culling mask to exclude the layer
+        //Camera mainCamera = Camera.main;
+        //mainCamera.cullingMask = mainCamera.cullingMask & ~(1 << LayerMask.NameToLayer("ExcludeFromRenderTexture"));
     }
 
     private void Update()
@@ -24,10 +28,14 @@ public class DrawWithMouse : MonoBehaviour
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentPosition.z = 0f;
 
-            if (currentLinePositions.Count == 0 || Vector3.Distance(currentPosition, currentLinePositions[currentLinePositions.Count - 1]) > minDistance)
+            // Check if the current position is on the right side of the screen
+            if (currentPosition.x > -5.2f)
             {
-                currentLinePositions.Add(currentPosition);
-                UpdateLineRenderer();
+                if (currentLinePositions.Count == 0 || Vector3.Distance(currentPosition, currentLinePositions[currentLinePositions.Count - 1]) > minDistance)
+                {
+                    currentLinePositions.Add(currentPosition);
+                    UpdateLineRenderer();
+                }
             }
         }
         else if (Input.GetMouseButtonUp(0))
@@ -35,6 +43,7 @@ public class DrawWithMouse : MonoBehaviour
             CreateNewLine();
         }
     }
+
 
     private void UpdateLineRenderer()
     {
