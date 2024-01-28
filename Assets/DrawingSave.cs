@@ -82,7 +82,7 @@ public class DrawingSave : MonoBehaviour
 
         // Save the PNG file to the application data path with the provided filename
         
-        string path = Path.Combine(UnityEngine.Application.dataPath, SceneManager.GetActiveScene().name + ".png");
+        string path = UnityEngine.Application.dataPath + "/Resources/" + SceneManager.GetActiveScene().name + ".png";
         File.WriteAllBytes(path, bytes);
         UnityEngine.Debug.Log("Saved to " + path);
     }

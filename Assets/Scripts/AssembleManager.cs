@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 
 public class AssembleManager : MonoBehaviour
 {
+    [SerializeField] private Button btn;
     private Texture headImage;
     private Texture torsoImage;
     private Texture rightArmImage;
@@ -29,19 +31,25 @@ public class AssembleManager : MonoBehaviour
     [SerializeField] private RawImage leftFoot;
     private float delay = 3f;
     private bool displayed = false;
+    private bool retBtn = true;
     // Start is called before the first frame update
     void Awake()
     {
-        headImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        torsoImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        rightArmImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        rightHandImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        leftArmImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        leftHandImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        rightLegImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        rightFootImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        leftLegImage = Resources.Load("drawing", typeof(Texture)) as Texture;
-        leftFootImage = Resources.Load("drawing", typeof(Texture)) as Texture;
+        btn.onClick.AddListener(() =>
+        {
+            SceneManager.LoadScene(0);
+        });
+        btn.gameObject.SetActive(false);
+        headImage = Resources.Load("HeadDraw", typeof(Texture)) as Texture;
+        torsoImage = Resources.Load("TorsoDraw", typeof(Texture)) as Texture;
+        rightArmImage = Resources.Load("RightArmDraw", typeof(Texture)) as Texture;
+        rightHandImage = Resources.Load("RightHandDraw", typeof(Texture)) as Texture;
+        leftArmImage = Resources.Load("LeftArmDraw", typeof(Texture)) as Texture;
+        leftHandImage = Resources.Load("LeftHandDraw", typeof(Texture)) as Texture;
+        rightLegImage = Resources.Load("RightLegDraw", typeof(Texture)) as Texture;
+        rightFootImage = Resources.Load("RightFootDraw", typeof(Texture)) as Texture;
+        leftLegImage = Resources.Load("LeftLegDraw", typeof(Texture)) as Texture;
+        leftFootImage = Resources.Load("LeftFootDraw", typeof(Texture)) as Texture;
     }
 
     // Update is called once per frame
@@ -60,8 +68,18 @@ public class AssembleManager : MonoBehaviour
                 rightLeg.texture = rightLegImage;
                 rightFoot.texture = rightFootImage;
                 leftLeg.texture = leftLegImage;
-                leftFoot.texture = leftLegImage;
+                leftFoot.texture = leftFootImage;
                 displayed = true;
+                delay = 3f;
+            }
+            delay -= Time.deltaTime;
+        }
+        else
+        {
+            if (delay < 0 && retBtn)
+            {
+                btn.gameObject.SetActive(true);
+                retBtn = false;
             }
             delay -= Time.deltaTime;
         }
