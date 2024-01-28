@@ -47,9 +47,9 @@ public class DrawWithMouse : MonoBehaviour
 
     private void UpdateLineRenderer()
     {
-        lines[lines.Count - 1].positionCount = currentLinePositions.Count;
-        lines[lines.Count - 1].SetPositions(currentLinePositions.ToArray());
-        lines[lines.Count - 1].startColor = lines[lines.Count - 1].endColor = currentColor;
+        lines[^1].positionCount = currentLinePositions.Count;
+        lines[^1].SetPositions(currentLinePositions.ToArray());
+        lines[^1].startColor = lines[^1].endColor = currentColor;
     }
 
     private void CreateNewLine()
@@ -58,6 +58,7 @@ public class DrawWithMouse : MonoBehaviour
         LineRenderer newLine = lineObject.AddComponent<LineRenderer>();
         newLine.startWidth = newLine.endWidth = width;
         newLine.material = new Material(Shader.Find("Sprites/Default")); // Use a basic material for color support
+        newLine.sortingOrder = lines.Count;
 
         lines.Add(newLine);
         currentLinePositions.Clear();
