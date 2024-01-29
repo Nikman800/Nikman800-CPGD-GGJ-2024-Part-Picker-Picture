@@ -8,10 +8,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 545f14950634b4e4599f8d29d25fa5d2
-  - enabled: 0
-    path: Assets/Scenes/DefaultDraw.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/NetworkingScene.unity
-    guid: 663a08584bef7734494512da8c850929
+    path: Assets/Scenes/HeadDraw.unity
+    guid: 87f07838596030d48b1bb10d6666f25b
+  - enabled: 1
+    path: Assets/Scenes/LeftArmDraw.unity
+    guid: 136a32d6c3e68b14ea0280ca042a3bf4
+  - enabled: 1
+    path: Assets/Scenes/LeftFootDraw.unity
+    guid: 7efd11d7e305bff48b0b7bd8b6cc2fdc
+  - enabled: 1
+    path: Assets/Scenes/LeftHandDraw.unity
+    guid: 799124c65e03a6a4daf1038610973978
+  - enabled: 1
+    path: Assets/Scenes/LeftLegDraw.unity
+    guid: 1af8acbe2568d4e4282263140d34616f
+  - enabled: 1
+    path: Assets/Scenes/RightArmDraw.unity
+    guid: 337067ea73f9e534884cd26978c046e9
+  - enabled: 1
+    path: Assets/Scenes/RightFootDraw.unity
+    guid: 9132c42005e68414eb739d3f5f49b3ce
+  - enabled: 1
+    path: Assets/Scenes/RightHandDraw.unity
+    guid: 61ee874c74442894c9705e4064c46319
+  - enabled: 1
+    path: Assets/Scenes/RightLegDraw.unity
+    guid: 31b24ffd55047654d9438c2d3ac6817b
+  - enabled: 1
+    path: Assets/Scenes/TorsoDraw.unity
+    guid: ed445a95ca74d204bab15636122c2b3c
+  - enabled: 1
+    path: Assets/Scenes/AssemblyScene.unity
+    guid: b8b9d328ea2c6af4e882481178449e8e
   m_configObjects: {}

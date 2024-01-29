@@ -85,10 +85,8 @@ public class DrawingSave : MonoBehaviour
     {
         next.gameObject.SetActive(false);
     }
-    
     public void SaveDrawing()
     {
-        next.gameObject.SetActive(true);
         // Convert the render texture to a Texture2D object
         Texture2D texture = new Texture2D(renderTexture.width - 535, renderTexture.height, TextureFormat.ARGB32, false);
         RenderTexture.active = renderTexture;
@@ -114,12 +112,9 @@ public class DrawingSave : MonoBehaviour
         string path = UnityEngine.Application.dataPath + "/Resources/" + SceneManager.GetActiveScene().name + ".png";
         File.WriteAllBytes(path, bytes);
         UnityEngine.Debug.Log("Saved to " + path);
-    }
-
-    public void NextDrawing()
-    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
 }
 
 
