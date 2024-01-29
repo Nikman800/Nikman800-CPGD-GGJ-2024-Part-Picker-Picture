@@ -102,8 +102,12 @@ public class DrawingSave : MonoBehaviour
         byte[] bytes = texture.EncodeToPNG();
 
         // Save the PNG file to the application data path with the provided filename
-        
-        string path = UnityEngine.Application.dataPath + "/Resources/" + SceneManager.GetActiveScene().name + ".png";
+
+        //string path = UnityEngine.Application.dataPath + "/Resources/" + SceneManager.GetActiveScene().name + ".png";
+
+        string fileName = SceneManager.GetActiveScene().name + ".png";
+        string path = Path.Combine(UnityEngine.Application.streamingAssetsPath, fileName);
+
         File.WriteAllBytes(path, bytes);
         UnityEngine.Debug.Log("Saved to " + path);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
