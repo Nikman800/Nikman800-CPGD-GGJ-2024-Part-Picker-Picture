@@ -69,7 +69,6 @@ public class DrawingSave : MonoBehaviour
     public DrawWithMouse drawWithMouse;
     public RenderTexture renderTexture;
     public Camera renderCamera;
-    [SerializeField] private Button next;
     
     private bool ColorApproxBG(Color color)
     {
@@ -79,11 +78,6 @@ public class DrawingSave : MonoBehaviour
             color.r > lower && color.r < upper &&
             color.g > lower && color.g < upper &&
             color.b > lower && color.b < upper;
-    }
-
-    private void Awake()
-    {
-        next.gameObject.SetActive(false);
     }
     public void SaveDrawing()
     {
