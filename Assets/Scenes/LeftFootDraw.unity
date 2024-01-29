@@ -619,6 +619,10 @@ PrefabInstance:
       propertyPath: drawWithMouse
       value: 
       objectReference: {fileID: 543034061}
+    - target: {fileID: 3009557210758454512, guid: a364e0f4085fb17428e30324300686e9, type: 3}
+      propertyPath: drawWithMouse
+      value: 
+      objectReference: {fileID: 543034061}
     - target: {fileID: 4008469921763708433, guid: a364e0f4085fb17428e30324300686e9, type: 3}
       propertyPath: drawWithMouse
       value: 

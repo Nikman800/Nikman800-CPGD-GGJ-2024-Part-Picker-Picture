@@ -92,6 +92,14 @@ public class ChangeColor : MonoBehaviour
             drawWithMouse.ChangeColor(Color.cyan);
         }
     }
+
+    public void ChangeColorToBackground()
+    {
+        if (drawWithMouse != null)
+        {
+            drawWithMouse.ChangeColor(new(212f / 255f, 212f / 255f, 212f / 255f));
+        }
+    }
     
     
 }
