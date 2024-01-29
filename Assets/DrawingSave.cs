@@ -97,8 +97,7 @@ public class DrawingSave : MonoBehaviour
 
         // Remove background pixels
         for (int row = 0; row < texture.height; row++)
-    public Camera renderCamera;
-    
+        {
             for (int col = 0; col < texture.width; col++)
             {
                 if (ColorApproxBG(texture.GetPixel(col, row)))
